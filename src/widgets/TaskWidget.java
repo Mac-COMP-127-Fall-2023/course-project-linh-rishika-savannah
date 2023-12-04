@@ -1,3 +1,4 @@
+package widgets;
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
@@ -58,13 +59,13 @@ public class TaskWidget extends GraphicsGroup {
         return field;
     }
 
-    private void readIntField(TextField field, Consumer<String> updateAction) {
-        try {
-            updateAction.accept(
-                    field.getText());
-            field.setBackground(Color.WHITE);
-        } catch () {
-            field.setBackground(new Color(0xFFCCCC));
-        }
-    }
+    // private void readIntField(TextField field, Consumer<String> updateAction) {
+    //     try {
+    //         updateAction.accept(
+    //                 field.getText());
+    //         field.setBackground(Color.WHITE);
+    //     } catch () {
+    //         field.setBackground(new Color(0xFFCCCC));
+    //     }
+    // }
 }

@@ -1,4 +1,4 @@
-package widgets;
+package comp127.BulletJournal.widgets;
 
 import edu.macalester.graphics.Image;
 import java.awt.Color;

@@ -1,3 +1,5 @@
+package comp127.BulletJournal;
+
 import comp127.BulletJournal.widgets.*;
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsGroup;
@@ -17,6 +19,7 @@ public class BulletJournalProgram {
 
     public BulletJournalProgram(double size){
         canvas= new CanvasWindow("Bullet Journal", 600, 800);
+        waterWidget= new WaterWidget(600);
         canvas.add(waterWidget.getGraphics());
 
 

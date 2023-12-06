@@ -1,4 +1,4 @@
-package widgets;
+package comp127.BulletJournal.widgets;
 import edu.macalester.graphics.*;
 import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;

@@ -1,6 +1,6 @@
 package comp127.BulletJournal.widgets;
 
-public class SleepWidget {
+public class MoodWidget {
     
     
 }

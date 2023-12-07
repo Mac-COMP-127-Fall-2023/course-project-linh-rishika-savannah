@@ -8,7 +8,6 @@ import java.util.function.Consumer;
 import java.util.ArrayList;
 
 public class TaskWidget extends GraphicsGroup {
-    private CanvasWindow canvas;
     private final double size;
     private GraphicsGroup group;
 
@@ -27,7 +26,6 @@ public class TaskWidget extends GraphicsGroup {
 
     public TaskWidget(double size) {
         this.size = size;
-        canvas = new CanvasWindow("TaskWidget", 900, 800);
 
         group = new GraphicsGroup();
 
@@ -70,10 +68,6 @@ public class TaskWidget extends GraphicsGroup {
     // }
 
     public void inputToList(ArrayList<String> list, TextField field) {
-
-    }
-
-    public static void main(String[] args) {
-        
+        //To do: 
     }
 }

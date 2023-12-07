@@ -22,10 +22,6 @@ public class BulletJournalProgram {
         waterWidget= new WaterWidget(600);
         canvas.add(waterWidget.getGraphics());
 
-
-
-
-
     }
     public static void main(String[] args) {
         new BulletJournalProgram(600);

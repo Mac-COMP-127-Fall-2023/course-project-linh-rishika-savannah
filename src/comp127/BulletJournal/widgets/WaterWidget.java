@@ -18,35 +18,56 @@ public class WaterWidget {
     private GraphicsText description;
     private Image icon;
     private double size;
-    //private CanvasWindow canvas;
     private String[] images;
     private int counter;
+    private String[] texts;
 
     public WaterWidget(double size){
         this.size=size;
+        counter = 0;
+
         group = new GraphicsGroup();
+
         icon = new Image(0, 0);
         icon.setMaxWidth(size);
         icon.setMaxHeight(size * 0.5);
+        icon.setImagePath("GlassImages/0p.jpg");
+        icon.setCenter(size * 0.5, size * 0.55);
         group.add(icon);
-        counter = 0;
+
+        
         label = new GraphicsText();
+        label.setText("How much water did you drink today?");
+        label.setFillColor(Color.blue);
         label.setFont(FontStyle.BOLD, size * 0.05);
+        label.setPosition(size*0.05,size*0.20);
         group.add(label);
 
         description = new GraphicsText();
-        description.setFont(FontStyle.PLAIN, size * 0.05);
+        description.setFont(FontStyle.BOLD_ITALIC , size * 0.05);
+        description.setText("Hmm you're dehydrated :( ");
+        description.setCenter(size * 0.5, size * 0.9);
         group.add(description);
-        //canvas= new CanvasWindow("WATER", 600, 800);
         
         images= new String[6];
-        images[0]="GlassImages/25p.jpg";
-        images[1]="GlassImages/30p.jpg";
-        images[2]="GlassImages/50p.jpg";
-        images[3]="GlassImages/75p.jpg";
-        images[4]="GlassImages/100p.jpg";
+        images[0]="GlassImages/0p.jpg";
+        images[1]="GlassImages/25p.jpg";
+        images[2]="GlassImages/30p.jpg";
+        images[3]="GlassImages/50p.jpg";
+        images[4]="GlassImages/75p.jpg";
+        images[5]="GlassImages/100p.jpg";
+
+        texts= new String[6];
+        texts[0]="Hmm you're dehydrated :( ";
+        texts[1]="You're still pretty dehydrated";
+        texts[2]="You've had a little water";
+        texts[3]="That's much better";
+        texts[4]="Your body is getting enough water!";
+        texts[5]="Hydrated queen";
+
+
         
-        //canvas.add(group);
+        
         addButton();
         removeButton();
 
@@ -55,39 +76,43 @@ public class WaterWidget {
     public void update(){
         String path = images[counter];
         icon.setImagePath(path);
-        icon.setCenter(size * 0.5, size * 0.4);
+        icon.setCenter(size * 0.5, size * 0.55);
+        String text= texts[counter];
+        description.setText(text);
+        description.setCenter(size * 0.5, size * 0.9);
+        
         
     }
 
     public void addButton(){
-        Button button= new Button("Add more!");
-        button.setPosition(0,10);
+        Button button= new Button("More Water!");
+        button.setPosition(size*0.5,size);
         group.add(button);
-        //canvas.add(group);
-        button.onClick(() -> {++counter; update();
-        if (counter >5){
+        
+        button.onClick(() -> {
+            ++counter;
+            if (counter > 5){
             counter=5;
-        }});
+            } update();
+        });
     }
 
     public void removeButton(){
-        Button button= new Button("Remove!");
-        button.setPosition(0,40);
+        Button button= new Button("Less Water!");
+        button.setPosition(size*0.2,size);
         group.add(button);
-        //canvas.add(group);
-        button.onClick(() -> {--counter; update();
-        if (counter <0){
+        
+        button.onClick(() -> {
+            --counter;
+            if (counter < 0){
             counter=0;
-        }});
+            } update();
+         });
     }
 
     public GraphicsObject getGraphics() {
         return group;
     }
-
-    // public static void main(String[] args) {
-    //     new WaterWidget(600);
-    // }
 
     
 }

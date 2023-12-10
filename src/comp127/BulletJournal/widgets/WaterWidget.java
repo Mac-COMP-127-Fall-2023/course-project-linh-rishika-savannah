@@ -63,10 +63,7 @@ public class WaterWidget {
         texts[2]="You've had a little water";
         texts[3]="That's much better";
         texts[4]="Your body is getting enough water!";
-        texts[5]="Hydrated queen";
-
-
-        
+        texts[5]="Well hydrated ! ";
         
         addButton();
         removeButton();

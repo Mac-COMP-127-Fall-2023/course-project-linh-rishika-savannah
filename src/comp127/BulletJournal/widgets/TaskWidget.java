@@ -45,28 +45,6 @@ public class TaskWidget extends GraphicsGroup {
         group.add(weeklyLabel);
     }
 
-    private TextField addComponentField(String label, double x, double y) {
-
-        GraphicsText labelGraphics = new GraphicsText(label);
-        labelGraphics.setPosition(-labelGraphics.getWidth() - 5, y);
-        add(labelGraphics);
-
-        TextField field = new TextField();
-        field.setPosition(x, y);
-        add(field);
-
-        labelGraphics.setCenter(labelGraphics.getCenter().getX(), field.getCenter().getY());
-        return field;
-    }
-
-    // private void readField(TextField field, Consumer<String> updateAction) {
-    //         updateAction.accept(
-    //                 field.getText());
-    //         field.setBackground(Color.WHITE);
-
-    //         field.setBackground(new Color(0xFFCCCC));
-    // }
-
     public void inputToList(ArrayList<String> list, TextField field) {
         //To do: 
     }

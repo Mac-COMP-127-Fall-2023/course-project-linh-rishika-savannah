@@ -20,7 +20,11 @@ public class BulletJournalProgram {
     public BulletJournalProgram(double size){
         canvas= new CanvasWindow("Bullet Journal", 600, 800);
         waterWidget= new WaterWidget(600);
-        canvas.add(waterWidget.getGraphics());
+        //canvas.add(waterWidget.getGraphics());
+
+        sleepWidget = new SleepWidget();
+        canvas.add(sleepWidget.getGraphics());
+
 
     }
     public static void main(String[] args) {

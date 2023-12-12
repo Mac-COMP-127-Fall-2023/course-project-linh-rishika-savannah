@@ -23,6 +23,7 @@ public class TaskWidget extends GraphicsGroup {
     private Button dailyButton, goalButton, weeklyButton;
 
     private Image icon;
+    private GraphicsText newgoal;
     private Image divider;
 
     public TaskWidget(double size) {
@@ -55,11 +56,11 @@ public class TaskWidget extends GraphicsGroup {
         group.add(weeklyField);
     }
 
-    public void inputToList(ArrayList<String> list, TextField field) {
-        //To do: 
-        list.add(field.getText());
+    // public void inputToList(ArrayList<String> list, TextField field) {
+    //     //To do: 
+    //     list.add(field.getText());
 
-    }
+    // }
 
     public GraphicsGroup getGraphics() {
         return group;
@@ -75,7 +76,7 @@ public class TaskWidget extends GraphicsGroup {
             list.add(field.getText());
         });
         for (String i : list) {
-            GraphicsText newgoal = new GraphicsText(i);
+            newgoal = new GraphicsText(i);
             newgoal.setFont(FontStyle.ITALIC, size * 0.07);
             newgoal.setPosition(field.getX() - 5,list.indexOf(i)*1.5 + field.getY());
             group.add(newgoal);

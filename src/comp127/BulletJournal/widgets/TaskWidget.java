@@ -32,15 +32,20 @@ public class TaskWidget{
         this.size = size;
 
         group = new GraphicsGroup();
+        dailyList = new ArrayList<>();
+        goalList = new ArrayList<>();
+        weeklyList = new ArrayList<>();
+
 
         dailyLabel = new GraphicsText();
         dailyLabel.setText("Today task");
         dailyLabel.setFont(FontStyle.BOLD, size * 0.05); 
         dailyLabel.setFillColor(PASTEL_PINK);
-        dailyLabel.setPosition(size*0.2, size*0.2);
+        dailyLabel.setPosition(size*0.1, size*0.1);
 
         dailyField = new TextField();
-        dailyField.setPosition(dailyLabel.getX() + 25, dailyLabel.getY());
+        dailyField.setPosition(dailyLabel.getX(), dailyLabel.getY()+5);
+        addButton(dailyField, dailyList);
 
         group.add(dailyLabel);
         group.add(dailyField);
@@ -49,10 +54,11 @@ public class TaskWidget{
         goalLabel.setText("Long-term goals");
         goalLabel.setFont(FontStyle.BOLD, size * 0.05);
         goalLabel.setFillColor(PASTEL_PINK);
-        goalLabel.setPosition(size*0.7, size*0.2);
+        goalLabel.setPosition(size*0.5, size*0.1);
 
         goalField = new TextField();
-        goalField.setPosition(goalLabel.getX() + 25, goalLabel.getY());
+        goalField.setPosition(goalLabel.getX(), goalLabel.getY()+5);
+        addButton(goalField, goalList);
         group.add(goalLabel);
         group.add(goalField);
 
@@ -60,10 +66,11 @@ public class TaskWidget{
         weeklyLabel.setText("Weekly tasks");
         weeklyLabel.setFont(FontStyle.BOLD, size * 0.05);
         weeklyLabel.setFillColor(PASTEL_PINK);
-        weeklyLabel.setPosition(size*0.7, size*0.7);
+        weeklyLabel.setPosition(size*0.5, size*0.5);
 
         weeklyField = new TextField();
-        weeklyField.setPosition(weeklyLabel.getX() + 25, weeklyLabel.getY());
+        weeklyField.setPosition(weeklyLabel.getX(), weeklyLabel.getY()+5);
+        addButton(weeklyField, weeklyList);
         group.add(weeklyLabel);
         group.add(weeklyField);
     }
@@ -84,7 +91,7 @@ public class TaskWidget{
 
     public void addButton(TextField field,ArrayList<String> list){
         Button button= new Button("Add");
-        button.setPosition(field.getX()+10,field.getY());
+        button.setPosition(field.getX()+100,field.getY());
         group.add(button);
         
         button.onClick(() -> {

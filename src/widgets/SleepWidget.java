@@ -22,10 +22,9 @@ CanvasWindow sleepCanvas;
     }
 
 
-    public void createSleepBar(){
-        for ( int i=0; i<=8; i++){
-            createBox(, i, i, i);
+    // public void createSleepBar(){
+    //     for ( int i=0; i<=8; i++){
+    //         createBox(, i, i, i);
 
-        }
+    //     }
     }
-}

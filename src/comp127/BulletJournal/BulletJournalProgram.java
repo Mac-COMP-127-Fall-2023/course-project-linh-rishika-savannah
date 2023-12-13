@@ -19,13 +19,17 @@ public class BulletJournalProgram {
 
     public BulletJournalProgram(double size){
         canvas= new CanvasWindow("Bullet Journal", 600, 800);
-        waterWidget= new WaterWidget(600);
-        canvas.add(waterWidget.getGraphics());
+        // waterWidget= new WaterWidget(600);
+        // canvas.add(waterWidget.getGraphics());
+        moodWidget= new MoodWidget(600);
+        canvas.add(moodWidget.getGraphics());
 
     }
     public static void main(String[] args) {
         new BulletJournalProgram(600);
     }
+
+
 
 
     

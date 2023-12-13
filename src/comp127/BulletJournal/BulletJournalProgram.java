@@ -22,11 +22,11 @@ public class BulletJournalProgram {
         // waterWidget= new WaterWidget(600);
         // canvas.add(waterWidget.getGraphics());
 
-        // sleepWidget = new SleepWidget();
-        // canvas.add(sleepWidget.getGraphics());
+        sleepWidget = new SleepWidget();
+        canvas.add(sleepWidget.getGraphics(canvas));
 
-        taskWidget = new TaskWidget(600);
-        canvas.add(taskWidget.getGraphics());
+        //taskWidget = new TaskWidget(600);
+        //canvas.add(taskWidget.getGraphics());
     }
     public static void main(String[] args) {
         BulletJournalProgram bjp = new BulletJournalProgram(600);

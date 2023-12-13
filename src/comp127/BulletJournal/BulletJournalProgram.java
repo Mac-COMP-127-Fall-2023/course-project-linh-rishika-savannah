@@ -12,7 +12,7 @@ import java.util.List;
 public class BulletJournalProgram {
     private CanvasWindow canvas;
     private double size;
-    private TaskWidget taskwidget;
+    private TaskWidget taskWidget;
     private SleepWidget sleepWidget;
     private MoodWidget moodWidget;
     private WaterWidget waterWidget;
@@ -24,9 +24,14 @@ public class BulletJournalProgram {
         moodWidget= new MoodWidget(600);
         canvas.add(moodWidget.getGraphics());
 
+        // sleepWidget = new SleepWidget();
+        // canvas.add(sleepWidget.getGraphics());
+
+        taskWidget = new TaskWidget(600);
+        canvas.add(taskWidget.getGraphics());
     }
     public static void main(String[] args) {
-        new BulletJournalProgram(600);
+        BulletJournalProgram bjp = new BulletJournalProgram(600);
     }
 
 

@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import java.util.ArrayList;
 
-public class TaskWidget extends GraphicsGroup {
+public class TaskWidget{
     private final double size;
     private GraphicsGroup group;
 
@@ -26,6 +26,8 @@ public class TaskWidget extends GraphicsGroup {
     private GraphicsText newgoal;
     private Image divider;
 
+    public static final Color PASTEL_PINK = new Color(201, 150, 216, 100);
+
     public TaskWidget(double size) {
         this.size = size;
 
@@ -33,25 +35,35 @@ public class TaskWidget extends GraphicsGroup {
 
         dailyLabel = new GraphicsText();
         dailyLabel.setText("Today task");
-        dailyLabel.setFont(FontStyle.BOLD, size * 0.1); //TO DO: set positions to all the labels
+        dailyLabel.setFont(FontStyle.BOLD, size * 0.05); 
+        dailyLabel.setFillColor(PASTEL_PINK);
         dailyLabel.setPosition(size*0.2, size*0.2);
-        dailyField.setPosition(dailyLabel.getX() + 15, dailyLabel.getY());
+
+        dailyField = new TextField();
+        dailyField.setPosition(dailyLabel.getX() + 25, dailyLabel.getY());
+
         group.add(dailyLabel);
         group.add(dailyField);
 
         goalLabel = new GraphicsText();
         goalLabel.setText("Long-term goals");
-        goalLabel.setFont(FontStyle.BOLD, size * 0.1);
+        goalLabel.setFont(FontStyle.BOLD, size * 0.05);
+        goalLabel.setFillColor(PASTEL_PINK);
         goalLabel.setPosition(size*0.7, size*0.2);
-        goalField.setPosition(goalLabel.getX() + 15, goalLabel.getY());
+
+        goalField = new TextField();
+        goalField.setPosition(goalLabel.getX() + 25, goalLabel.getY());
         group.add(goalLabel);
         group.add(goalField);
 
         weeklyLabel = new GraphicsText();
         weeklyLabel.setText("Weekly tasks");
-        weeklyLabel.setFont(FontStyle.BOLD, size * 0.1);
+        weeklyLabel.setFont(FontStyle.BOLD, size * 0.05);
+        weeklyLabel.setFillColor(PASTEL_PINK);
         weeklyLabel.setPosition(size*0.7, size*0.7);
-        weeklyField.setPosition(goalLabel.getX() + 15, goalLabel.getY());
+
+        weeklyField = new TextField();
+        weeklyField.setPosition(weeklyLabel.getX() + 25, weeklyLabel.getY());
         group.add(weeklyLabel);
         group.add(weeklyField);
     }
@@ -64,6 +76,10 @@ public class TaskWidget extends GraphicsGroup {
 
     public GraphicsGroup getGraphics() {
         return group;
+    }
+
+    public void addToCanvas(CanvasWindow canvas) {
+        canvas.add(group);
     }
 
     public void addButton(TextField field,ArrayList<String> list){

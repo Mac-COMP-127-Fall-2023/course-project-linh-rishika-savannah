@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 import org.w3c.dom.css.Rect; 
 
-public class SleepWidget {
+public class SleepWidget implements BulletJournalWidget {
     
 GraphicsGroup sleepGroup;
 CanvasWindow sleepCanvas;
@@ -37,7 +37,7 @@ private Color colorSeven;
 private Color colorEight;
 
 
-    public SleepWidget(){
+    public SleepWidget(CanvasWindow canvas){
         sleepGroup = new GraphicsGroup();
         size = 10;
         question = new GraphicsText("How many hours of sleep did you get last night?");
@@ -69,9 +69,12 @@ private Color colorEight;
 
         colorEight= new Color(0, 255, 0);
         colorNums.put(8, colorEight);
+
+        createSleepBar();
+        canvas.onClick((event) -> clickBox(event.getPosition()));
     }
 
-    public Rectangle createBox(double x, double y, double width, double height){
+    public Rectangle createButton(double x, double y, double width, double height){
         Rectangle newBox = new Rectangle(x*size, y*size, width*size, height*size);
         System.out.println(height*size);
         System.out.println(y*size);
@@ -89,7 +92,7 @@ private Color colorEight;
         for (int i=0; i<8; i++){
             GraphicsText nums = new GraphicsText(boxCount.toString(), x*size, y*size +40);
             sleepGroup.add(nums);
-            Rectangle newBox= createBox(x, y, BOX_WIDTH, BOX_HEIGHT);
+            Rectangle newBox= createButton(x, y, BOX_WIDTH, BOX_HEIGHT);
             x= x + (BOX_WIDTH);
             boxCount = boxCount +1;
             boxNums.put(newBox, boxCount);
@@ -124,9 +127,7 @@ private Color colorEight;
         }
     }
 
-    public GraphicsObject getGraphics(CanvasWindow canvas) {
-        createSleepBar();
-        canvas.onClick((event) -> clickBox(event.getPosition()));
+    public GraphicsObject getGraphics() {
         return sleepGroup;
     }
 

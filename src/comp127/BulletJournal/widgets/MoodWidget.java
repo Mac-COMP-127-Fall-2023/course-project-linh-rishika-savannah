@@ -6,7 +6,7 @@ import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.ui.Button;
 
-public class MoodWidget {
+public class MoodWidget implements BulletJournalWidget{
 
     private GraphicsGroup group;
     private GraphicsText label;
@@ -36,7 +36,7 @@ public class MoodWidget {
         texts[4]= "ooooh you feel mischevious";
         texts[5]= "boring uneventful day";
 
-        createButtons();
+        createButton();
 
 
     }
@@ -68,7 +68,7 @@ public class MoodWidget {
         
     }
 
-    public void createButtons(){
+    public void createButton(){
         Button button1= new Button("Conetnt");
         button1.setPosition(size * 0.1, size * 0.55);
         group.add(button1);

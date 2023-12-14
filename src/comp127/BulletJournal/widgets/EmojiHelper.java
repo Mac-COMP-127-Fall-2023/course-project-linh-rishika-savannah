@@ -18,25 +18,6 @@ public class EmojiHelper {
         NAUSEOUS_COLOR = new Color(0x589817),
         NAUSEOUS_LINE_COLOR = new Color(0x0F1A04);
 
-    // public static void main(String[] args) {
-    //     CanvasWindow canvas = new CanvasWindow("Emoji", 900, 600);
-
-    //     List<GraphicsGroup> faces = List.of(
-    //         createSmileyFace(100),
-    //         createFrownyFace(130),
-    //         createWinkingFace(160),
-    //         createNauseousFace(190),
-    //         createContentedFace(210)
-    //     );
-
-    //     double x = 20;
-    //     for (GraphicsGroup face : faces) {
-    //         face.setPosition(x, 500 - face.getHeight());
-    //         canvas.add(face);
-    //         x += face.getWidth() + 10;
-    //     }
-    // }
-
     /**
      * Creates a smiley face emoji.
      *

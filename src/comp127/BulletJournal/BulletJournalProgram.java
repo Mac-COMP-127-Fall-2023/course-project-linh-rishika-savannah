@@ -24,8 +24,8 @@ public class BulletJournalProgram {
         moodWidget= new MoodWidget(600);
         canvas.add(moodWidget.getGraphics());
 
-        sleepWidget = new SleepWidget();
-        canvas.add(sleepWidget.getGraphics(canvas));
+        // sleepWidget = new SleepWidget();
+        // canvas.add(sleepWidget.getGraphics(canvas));
 
         //taskWidget = new TaskWidget(600);
         //canvas.add(taskWidget.getGraphics());

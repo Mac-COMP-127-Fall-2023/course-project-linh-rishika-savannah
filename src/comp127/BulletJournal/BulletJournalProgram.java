@@ -27,11 +27,11 @@ public class BulletJournalProgram {
         // sleepWidget = new SleepWidget();
         // canvas.add(sleepWidget.getGraphics());
 
-        taskWidget = new TaskWidget(600);
-        canvas.add(taskWidget.getGraphics());
+        // taskWidget = new TaskWidget(600);
+        // canvas.add(taskWidget.getGraphics());
     }
     public static void main(String[] args) {
-        BulletJournalProgram bjp = new BulletJournalProgram(600);
+       new BulletJournalProgram(600);
     }
 
 

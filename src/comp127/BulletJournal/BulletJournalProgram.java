@@ -24,11 +24,11 @@ public class BulletJournalProgram {
         moodWidget= new MoodWidget(600);
         canvas.add(moodWidget.getGraphics());
 
-        // sleepWidget = new SleepWidget();
-        // canvas.add(sleepWidget.getGraphics());
+        sleepWidget = new SleepWidget();
+        canvas.add(sleepWidget.getGraphics(canvas));
 
-        // taskWidget = new TaskWidget(600);
-        // canvas.add(taskWidget.getGraphics());
+        //taskWidget = new TaskWidget(600);
+        //canvas.add(taskWidget.getGraphics());
     }
     public static void main(String[] args) {
        new BulletJournalProgram(600);

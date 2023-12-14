@@ -85,16 +85,13 @@ private Color colorEight;
     public void createSleepBar(){
         double x = 20;
         double y= 50;
-        //Integer colorCount = 0;
         Integer boxCount = 1;
         for (int i=0; i<8; i++){
             GraphicsText nums = new GraphicsText(boxCount.toString(), x*size, y*size +40);
             sleepGroup.add(nums);
-            
             Rectangle newBox= createBox(x, y, BOX_WIDTH, BOX_HEIGHT);
             x= x + (BOX_WIDTH);
             boxCount = boxCount +1;
-            //colorCount = colorCount +1;
             boxNums.put(newBox, boxCount);
         }
     }
@@ -129,7 +126,6 @@ private Color colorEight;
 
     public GraphicsObject getGraphics(CanvasWindow canvas) {
         createSleepBar();
-        
         canvas.onClick((event) -> clickBox(event.getPosition()));
         return sleepGroup;
     }

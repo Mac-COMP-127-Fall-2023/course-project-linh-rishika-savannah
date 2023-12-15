@@ -11,7 +11,7 @@ import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.ui.Button;
 import java.util.*;
 
-public class WaterWidget {
+public class WaterWidget implements BulletJournalWidget{
 
     private GraphicsGroup group;
     private GraphicsText label;
@@ -65,8 +65,7 @@ public class WaterWidget {
         texts[4]="Your body is getting enough water!";
         texts[5]="Well hydrated ! ";
         
-        addButton();
-        removeButton();
+        createButton();
 
     }
 
@@ -81,7 +80,7 @@ public class WaterWidget {
         
     }
 
-    public void addButton(){
+    public void createButton(){
         Button button= new Button("More Water!");
         button.setPosition(size*0.5,size);
         group.add(button);
@@ -92,14 +91,11 @@ public class WaterWidget {
             counter=5;
             } update();
         });
-    }
-
-    public void removeButton(){
-        Button button= new Button("Less Water!");
-        button.setPosition(size*0.2,size);
-        group.add(button);
+        Button button1= new Button("Less Water!");
+        button1.setPosition(size*0.2,size);
+        group.add(button1);
         
-        button.onClick(() -> {
+        button1.onClick(() -> {
             --counter;
             if (counter < 0){
             counter=0;

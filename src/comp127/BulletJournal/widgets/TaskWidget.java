@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import java.util.ArrayList;
 
-public class TaskWidget{
+public class TaskWidget implements BulletJournalWidget{
     private final double size;
     private GraphicsGroup group;
 
@@ -21,7 +21,7 @@ public class TaskWidget{
     private GraphicsText weeklyLabel;
     private TextField dailyField, goalField, weeklyField;
     private Button dailyButton, goalButton, weeklyButton;
-    
+
 
     private Image icon;
     private GraphicsText newgoal;

@@ -23,10 +23,10 @@ public class TaskWidget{
     private Button dailyButton, goalButton, weeklyButton;
 
     private Image icon;
-    private GraphicsText newgoal;
     private Image divider;
 
-    public static final Color PASTEL_PINK = new Color(201, 150, 216, 100);
+    public static final Color PASTEL_PINK = new Color(201, 150, 216, 150);
+    public static final Color GRAY = new Color(128,128,128,100); 
 
     public TaskWidget(double size) {
         this.size = size;
@@ -97,12 +97,21 @@ public class TaskWidget{
         button.onClick(() -> {
             field.getText();
             list.add(field.getText());
+            addNewTask(field, list);
         });
-        for (String i : list) {
-            newgoal = new GraphicsText(i);
-            newgoal.setFont(FontStyle.ITALIC, size * 0.07);
-            newgoal.setPosition(field.getX() - 5,list.indexOf(i)*1.5 + field.getY());
-            group.add(newgoal);
-        }
     }
+    private void addNewTask(TextField field, ArrayList<String> list) {
+        for (String i : list) {
+           GraphicsText newgoal = new GraphicsText(i);
+            newgoal.setFont(FontStyle.ITALIC, size * 0.035);
+            newgoal.setFillColor(GRAY);
+            newgoal.setPosition(field.getX(),list.indexOf(i)*20 + field.getY()+50);
+            group.add(newgoal);
+        } 
+    }
+    //TO do: create graphicgroup of all task every time adding new task
+
+    // private void removeTask(TextField field, ArrayList<String> list) {
+
+    // }
 }

@@ -16,10 +16,6 @@ public class BulletJournalProgram {
     private SleepWidget sleepWidget;
     private MoodWidget moodWidget;
     private WaterWidget waterWidget;
-    private double miniWidgetSize, largeWidgetSize;
-    private List<BulletJournalWidget> miniWidgets, largeWidgets;
-    private BulletJournalWidget displayedLargeWidget;
-    private Rectangle selectionHighlight;
 
     public BulletJournalProgram(double size){
 
@@ -38,9 +34,12 @@ public class BulletJournalProgram {
 
         canvas.setBackground(new Color(255, 189, 223));
         waterWidget= new WaterWidget(600);
-        // canvas.add(waterWidget.getGraphics());
-        moodWidget= new MoodWidget(600);
-        sleepWidget= new SleepWidget(canvas);
+        canvas.add(waterWidget.getGraphics());
+
+        taskWidget = new TaskWidget(size);
+        canvas.add(taskWidget.getGraphics());
+
+        sleepWidget = new SleepWidget(canvas);
         canvas.add(sleepWidget.getGraphics());
 
         selectionHighlight = new Rectangle(0, 0, miniWidgetSize, miniWidgetSize);  // selectWidgetAtIndex() will position it
@@ -94,13 +93,7 @@ public class BulletJournalProgram {
         selectionHighlight.setPosition(largeWidgetSize, miniWidgetSize * index);
     }
     public static void main(String[] args) {
-       new BulletJournalProgram(600);
+        BulletJournalProgram bjp = new BulletJournalProgram(600);
     }
-
-
-
-
-
-    
     
 }

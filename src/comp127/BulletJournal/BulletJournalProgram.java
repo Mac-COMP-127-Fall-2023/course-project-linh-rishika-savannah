@@ -22,15 +22,18 @@ public class BulletJournalProgram {
     private Rectangle selectionHighlight;
 
     public BulletJournalProgram(double size){
+
+        canvas= new CanvasWindow("Bullet Journal",
+            (int) Math.round(largeWidgetSize + miniWidgetSize),
+            (int) Math.round(largeWidgetSize));
+        
         this.largeWidgetSize = largeWidgetSize;
         largeWidgets = createWidgets(largeWidgetSize);
 
         miniWidgetSize = largeWidgetSize / largeWidgets.size();  // so they stack along one edge
         miniWidgets = createWidgets(miniWidgetSize);
 
-        this.canvas= new CanvasWindow("Bullet Journal",
-            (int) Math.round(largeWidgetSize + miniWidgetSize),
-            (int) Math.round(largeWidgetSize));
+
 
 
         canvas.setBackground(new Color(255, 189, 223));
@@ -53,7 +56,6 @@ public class BulletJournalProgram {
         }
 
         selectWidgetAtIndex(0);
-
         
 
         canvas.onClick(event -> {
@@ -64,7 +66,6 @@ public class BulletJournalProgram {
         });
 
         canvas.draw();
-
         
     }
 

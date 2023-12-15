@@ -16,90 +16,23 @@ public class BulletJournalProgram {
     private SleepWidget sleepWidget;
     private MoodWidget moodWidget;
     private WaterWidget waterWidget;
-    private double miniWidgetSize, largeWidgetSize;
-    private List<BulletJournalWidget> miniWidgets, largeWidgets;
-    private BulletJournalWidget displayedLargeWidget;
-    private Rectangle selectionHighlight;
 
     public BulletJournalProgram(double size){
-        this.largeWidgetSize = largeWidgetSize;
-        largeWidgets = createWidgets(largeWidgetSize);
-
-        miniWidgetSize = largeWidgetSize / largeWidgets.size();  // so they stack along one edge
-        miniWidgets = createWidgets(miniWidgetSize);
-
-        this.canvas= new CanvasWindow("Bullet Journal",
-            (int) Math.round(largeWidgetSize + miniWidgetSize),
-            (int) Math.round(largeWidgetSize));
-
-
-        canvas.setBackground(new Color(255, 189, 223));
+        canvas= new CanvasWindow("Bullet Journal", 600, 800);
         waterWidget= new WaterWidget(600);
-        // canvas.add(waterWidget.getGraphics());
-        moodWidget= new MoodWidget(600);
-        sleepWidget= new SleepWidget(canvas);
+        canvas.add(waterWidget.getGraphics());
+
+        taskWidget = new TaskWidget(size);
+        canvas.add(taskWidget.getGraphics());
+
+        sleepWidget = new SleepWidget(canvas);
         canvas.add(sleepWidget.getGraphics());
 
-        selectionHighlight = new Rectangle(0, 0, miniWidgetSize, miniWidgetSize);  // selectWidgetAtIndex() will position it
-        selectionHighlight.setStroked(false);
-        selectionHighlight.setFillColor(new Color(0x7FFFFFFF, true));
-        canvas.add(selectionHighlight);
-
-
-        double y = 0;
-        for (BulletJournalWidget widget : miniWidgets) {
-            canvas.add(widget.getGraphics(), largeWidgetSize, y);
-            y += miniWidgetSize;
-        }
-
-        selectWidgetAtIndex(0);
-
-        
-
-        canvas.onClick(event -> {
-            if (event.getPosition().getX() >= largeWidgetSize) {
-                selectWidgetAtIndex(
-                    (int) (event.getPosition().getY() / largeWidgetSize * miniWidgets.size()));
-            }
-        });
-
-        canvas.draw();
-
-        
-    }
-
-    private List<BulletJournalWidget> createWidgets(double size) {
-        return List.of(
-            new SleepWidget(canvas),
-            new WaterWidget(size),  
-            new MoodWidget(size));
-
-    }
-
-    private void selectWidgetAtIndex(int index) {
-
-        if ( index <0 || index> largeWidgets.size()){
-            return;
-        }
-
-        if(displayedLargeWidget!= null){
-            canvas.remove(displayedLargeWidget.getGraphics());
-        }
-        displayedLargeWidget= largeWidgets.get(index);
-       
-        if (displayedLargeWidget!= null){
-            canvas.add(displayedLargeWidget.getGraphics());
-        }
-        selectionHighlight.setPosition(largeWidgetSize, miniWidgetSize * index);
+        moodWidget = new MoodWidget(size);
+        canvas.add(moodWidget.getGraphics());
     }
     public static void main(String[] args) {
-       new BulletJournalProgram(600);
+        BulletJournalProgram bjp = new BulletJournalProgram(600);
     }
-
-
-
-
-
-    
     
 }

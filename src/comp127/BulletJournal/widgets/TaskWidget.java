@@ -100,7 +100,7 @@ public class TaskWidget implements BulletJournalWidget{
     private void addNewTask(TextField field, ArrayList<String> list) {
             GraphicsText newgoal = new GraphicsText(list.get(list.size()-1));
             newgoal.setFont(FontStyle.ITALIC, size * 0.035);
-            newgoal.setStrokeWidth(5);
+            newgoal.setStrokeWidth(2);
             newgoal.setFillColor(GRAY);
             newgoal.setPosition(field.getX(),list.indexOf(list.get(list.size()-1))*20 + field.getY()+50);
             canvas.add(newgoal);

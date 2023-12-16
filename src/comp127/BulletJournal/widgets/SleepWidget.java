@@ -111,18 +111,16 @@ private Color colorEight;
 
 
     public void clickBox(Point location){
-        System.out.println("click box reached");
         System.out.println(getBoxAt(location));
         if (getBoxAt(location)!= null){
 
             Integer num= boxNums.get(getBoxAt(location));
-            System.out.println("box number = "+ num);
 
             Color color = colorNums.get(num-1);
-            System.out.println("color number = "+ color);
+            //System.out.println("color number = "+ color);
 
             getBoxAt(location).setFillColor(color);
-            System.out.println("box clicked");
+            //System.out.println("box clicked");
 
         }
     }

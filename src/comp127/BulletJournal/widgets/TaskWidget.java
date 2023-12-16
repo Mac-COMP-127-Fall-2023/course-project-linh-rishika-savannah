@@ -5,12 +5,18 @@ import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
 import java.awt.List;
 import java.util.function.Consumer;
+import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.Point;
 
 import java.util.ArrayList;
 
 public class TaskWidget implements BulletJournalWidget{
     private final double size;
     private GraphicsGroup group;
+    private GraphicsGroup taskGroup;
+    private GraphicsGroup biggroup;
+
+
 
     private ArrayList<String> dailyList;
     private ArrayList<String> goalList;
@@ -25,14 +31,19 @@ public class TaskWidget implements BulletJournalWidget{
 
     private Image icon;
     private Image divider;
+    private CanvasWindow canvas;
 
-    public static final Color PASTEL_PINK = new Color(201, 150, 216, 150);
-    public static final Color GRAY = new Color(128,128,128,100); 
+    public static final Color PASTEL_PINK = new Color(174, 198, 207, 200);
+    public static final Color GRAY = new Color(128,128,128,200); 
 
-    public TaskWidget(double size) {
+    public TaskWidget(double size, CanvasWindow canvas) {
         this.size = size;
-
+        this.canvas = canvas;
+        
+        biggroup = new GraphicsGroup();
         group = new GraphicsGroup();
+        taskGroup = new GraphicsGroup();
+
         dailyList = new ArrayList<>();
         goalList = new ArrayList<>();
         weeklyList = new ArrayList<>();
@@ -74,45 +85,64 @@ public class TaskWidget implements BulletJournalWidget{
         addButton(weeklyField, weeklyList);
         group.add(weeklyLabel);
         group.add(weeklyField);
+
+        canvas.onClick(event -> {removeTask(event.getPosition());} );
     }
 
-    // public void inputToList(ArrayList<String> list, TextField field) {
-    //     //To do: 
-    //     list.add(field.getText());
-
-    // }
 
     public GraphicsGroup getGraphics() {
-        return group;
+        biggroup = new GraphicsGroup();
+        biggroup.add(group);
+        biggroup.add(taskGroup);
+        return biggroup;
     }
 
     public void addToCanvas(CanvasWindow canvas) {
-        canvas.add(group);
+        canvas.add(biggroup);
     }
 
     public void addButton(TextField field,ArrayList<String> list){
         Button button= new Button("Add");
         button.setPosition(field.getX()+100,field.getY());
         group.add(button);
-        
+        // GraphicsGroup currentTaskGroup = taskGroup;
         button.onClick(() -> {
             field.getText();
             list.add(field.getText());
             addNewTask(field, list);
+            
         });
+        // biggroup.add(taskGroup);
     }
     private void addNewTask(TextField field, ArrayList<String> list) {
-        for (String i : list) {
-           GraphicsText newgoal = new GraphicsText(i);
+        // for (String i : list) {
+        //     GraphicsText newgoal = new GraphicsText(i);
+        //     newgoal.setFont(FontStyle.ITALIC, size * 0.035);
+        //     newgoal.setFillColor(GRAY);
+        //     newgoal.setPosition(field.getX(),list.indexOf(i)*20 + field.getY()+50);
+        //     taskGroup.add(newgoal);
+        // }
+            GraphicsText newgoal = new GraphicsText(list.get(list.size()-1));
             newgoal.setFont(FontStyle.ITALIC, size * 0.035);
+            newgoal.setStrokeWidth(5);
             newgoal.setFillColor(GRAY);
-            newgoal.setPosition(field.getX(),list.indexOf(i)*20 + field.getY()+50);
-            group.add(newgoal);
-        } 
+            newgoal.setPosition(field.getX(),list.indexOf(list.get(list.size()-1))*20 + field.getY()+50);
+            canvas.add(newgoal);
+            // taskGroup.add(newgoal);
+
     }
+        
+
     //TO do: create graphicgroup of all task every time adding new task
 
-    // private void removeTask(TextField field, ArrayList<String> list) {
+    private void removeTask(Point location) {
+        // canvas.onClick((event) -> {
+        //     canvas.remove(canvas.getElementAt(event.getPosition()));
+        // });
 
-    // }
+        GraphicsObject taskRemove = canvas.getElementAt(location);
+        if (taskRemove != null) {
+        canvas.remove(taskRemove);}
+
+    }
 }

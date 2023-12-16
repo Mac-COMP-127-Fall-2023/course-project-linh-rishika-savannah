@@ -31,6 +31,8 @@ public class BulletJournalProgram {
 
         moodWidget= new MoodWidget(600);
 
+        taskWidget = new TaskWidget(600, canvas);
+
         sleepImage= new Image("MainImages/MainImages.jpeg");
         sleepImage.setMaxWidth(100);
         sleepImage.setMaxHeight(100);
@@ -76,6 +78,17 @@ public class BulletJournalProgram {
             selectWidgetAtIndex();
             displayedWidget= moodWidget;
             }    
+        });
+
+        Button taskbutton= new Button("Task Widget");
+        taskbutton.setPosition(750, 290);
+        canvas.add(taskbutton);
+        taskbutton.onClick(()-> {
+            if (displayedWidget!= taskWidget){
+            canvas.add(taskWidget.getGraphics());
+            selectWidgetAtIndex();
+            displayedWidget= taskWidget;
+            }
         });
     }
 

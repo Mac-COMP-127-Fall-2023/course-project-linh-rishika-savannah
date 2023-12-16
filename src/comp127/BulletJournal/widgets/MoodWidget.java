@@ -69,7 +69,7 @@ public class MoodWidget implements BulletJournalWidget{
     }
 
     public void createButton(){
-        Button button1= new Button("Conetnt");
+        Button button1= new Button("Content");
         button1.setPosition(size * 0.1, size * 0.55);
         group.add(button1);
         

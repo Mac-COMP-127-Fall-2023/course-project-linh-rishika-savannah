@@ -5,9 +5,6 @@ import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
 import java.awt.List;
 import java.util.function.Consumer;
-import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.Point;
-
 import java.util.ArrayList;
 
 public class TaskWidget implements BulletJournalWidget{
@@ -48,6 +45,12 @@ public class TaskWidget implements BulletJournalWidget{
         goalList = new ArrayList<>();
         weeklyList = new ArrayList<>();
 
+        // icon = new Image(0, 0);
+        // // icon.setMaxWidth(size);
+        // // icon.setMaxHeight(size);
+        // icon.setImagePath("res/TaskImages/dotline.png");
+        // icon.setCenter(size * 0.5, size * 0.5);
+        // group.add(icon);
 
         dailyLabel = new GraphicsText();
         dailyLabel.setText("Today task");

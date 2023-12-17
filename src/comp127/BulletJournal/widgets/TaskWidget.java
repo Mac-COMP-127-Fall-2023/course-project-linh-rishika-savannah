@@ -3,15 +3,11 @@ import edu.macalester.graphics.*;
 import edu.macalester.graphics.ui.Button;
 import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
-import java.awt.List;
-import java.util.function.Consumer;
 import java.util.ArrayList;
 
 public class TaskWidget implements BulletJournalWidget{
     private final double size;
     private GraphicsGroup group;
-
-
 
     private ArrayList<String> dailyList;
     private ArrayList<String> goalList;
@@ -21,14 +17,15 @@ public class TaskWidget implements BulletJournalWidget{
     private GraphicsText goalLabel;
     private GraphicsText weeklyLabel;
     private TextField dailyField, goalField, weeklyField;
-    private Button dailyButton, goalButton, weeklyButton;
-
-
-    private Image icon;
 
     public static final Color PASTEL_PINK = new Color(174, 198, 207, 200);
     public static final Color GRAY = new Color(128,128,128,200); 
 
+    /**
+     * The contructor lays out graphics for the widget. It consists of 3 fields (daily, goal, weekly), which each includes a label, a textfield, and a button.
+     * @param size The relative size of the canvas, which will in turn affect all of the graphics object size
+     * @param canvas The canvas parameter as it will affect canvas.onClick method.
+     */
     public TaskWidget(double size, CanvasWindow canvas) {
         this.size = size;
         
@@ -78,16 +75,24 @@ public class TaskWidget implements BulletJournalWidget{
         canvas.onClick(event -> {removeTask(event.getPosition());} );
     }
 
-
+    /**
+     * This method returns the widget graphics group. This is a part of the BulletJournalWidget interface.
+     * @return GraphicsGroup
+     */
+    @Override
     public GraphicsGroup getGraphics() {
         return group;
     }
 
+    /**
+     * This method creates the add buttons which get text in the TextField, adds new task into the task lists and displays it into the graphic group
+     * @param field corresponding textField 
+     * @param list corresponding ArrayList
+     */
     public void addButton(TextField field,ArrayList<String> list){
         Button button= new Button("Add");
         button.setPosition(field.getX()+100,field.getY());
         group.add(button);
-        //GraphicsGroup currentTaskGroup = taskGroup;
         button.onClick(() -> {
             field.getText();
             list.add(field.getText());
@@ -95,6 +100,12 @@ public class TaskWidget implements BulletJournalWidget{
             
         });
     }
+
+    /**
+     * This method creates new task Graphics Text and places it one underneath the other.
+     * @param field corresponding textField 
+     * @param list corresponding ArrayList
+     */
     private void addNewTask(TextField field, ArrayList<String> list) {
             GraphicsText newgoal = new GraphicsText(list.get(list.size()-1));
             newgoal.setFont(FontStyle.ITALIC, size * 0.035);
@@ -104,14 +115,13 @@ public class TaskWidget implements BulletJournalWidget{
             group.add(newgoal);
 
     }
-        
-
-    //TO do: create graphicgroup of all task every time adding new task
-
+    /**
+     * This method remove the GraphicsText Object on mouse click, remove it from the canvas.
+     * @param location
+     */
     private void removeTask(Point location) {
         GraphicsObject taskRemove = group.getElementAt(location);
         if (taskRemove != null) {
         group.remove(taskRemove);}
-
     }
 }

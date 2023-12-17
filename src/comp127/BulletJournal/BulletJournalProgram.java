@@ -10,7 +10,6 @@ import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 
 import java.awt.Color;
-import java.util.List;
 
 public class BulletJournalProgram {
     private CanvasWindow canvas;
@@ -35,7 +34,7 @@ public class BulletJournalProgram {
 
         moodWidget= new MoodWidget(600);
 
-        //taskWidget = new TaskWidget(600, canvas);
+        taskWidget = new TaskWidget(600, canvas);
 
         sleepImage= new Image("MainImages/MainImages.jpeg");
         sleepImage.setMaxWidth(150);

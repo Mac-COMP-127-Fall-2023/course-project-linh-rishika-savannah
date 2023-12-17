@@ -29,12 +29,12 @@ public class MoodWidget implements BulletJournalWidget{
         description.setFillColor(Color.RED);
 
         texts= new String[6];
-        texts[0]= "Life is happy and content";
-        texts[1]= "Sorry you feel nauseous :(";
-        texts[2]= "You won't always be sad ! ";
-        texts[3]= "Yay! You had a good day";
-        texts[4]= "ooooh you feel mischevious";
-        texts[5]= "boring uneventful day";
+        texts[0]= "You must be having a peaceful day";
+        texts[1]= "Time to pop open the Pepto Bismol!";
+        texts[2]= "Maybe you should cry it out and get some boba";
+        texts[3]= "Life is good!";
+        texts[4]= "Don't get into too much trouble!";
+        texts[5]= "Sorry you day is lame, go do something fun!";
 
         createButton();
 

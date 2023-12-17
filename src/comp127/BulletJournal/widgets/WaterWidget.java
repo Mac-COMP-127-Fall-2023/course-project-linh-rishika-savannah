@@ -58,12 +58,12 @@ public class WaterWidget implements BulletJournalWidget{
         images[5]="GlassImages/100p.jpg";
 
         texts= new String[6];
-        texts[0]="Hmm you're dehydrated :( ";
-        texts[1]="You're still pretty dehydrated";
-        texts[2]="You've had a little water";
-        texts[3]="That's much better";
-        texts[4]="Your body is getting enough water!";
-        texts[5]="Well hydrated ! ";
+        texts[0]="Don't you know you need water to survive?";
+        texts[1]="Way to get started!";
+        texts[2]="Keep going!";
+        texts[3]="Almost there!";
+        texts[4]="Great! You achieved the water goal!";
+        texts[5]="Way to go, you're an overachiever!";
         
         createButton();
 

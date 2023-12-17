@@ -35,7 +35,7 @@ public class BulletJournalProgram {
 
         moodWidget= new MoodWidget(600);
 
-        //taskWidget = new TaskWidget(600, canvas);
+        taskWidget = new TaskWidget(600, canvas);
 
         sleepImage= new Image("MainImages/MainImages.jpeg");
         sleepImage.setMaxWidth(150);
@@ -71,7 +71,7 @@ public class BulletJournalProgram {
         sleepbutton.onClick(()-> {
             if (displayedWidget!= sleepWidget){
                 canvas.add(sleepWidget.getGraphics());
-                selectWidgetAtIndex();
+                removeWidget();
                 displayedWidget= sleepWidget; 
                 
             }
@@ -85,7 +85,7 @@ public class BulletJournalProgram {
         waterbutton.onClick(()-> {
             if (displayedWidget!= waterWidget){
             canvas.add(waterWidget.getGraphics());
-            selectWidgetAtIndex();
+            removeWidget();
             displayedWidget= waterWidget;
             }
         });
@@ -96,34 +96,33 @@ public class BulletJournalProgram {
         moodbutton.onClick(()-> {
             if (displayedWidget!= moodWidget){
             canvas.add(moodWidget.getGraphics());
-            selectWidgetAtIndex();
+            removeWidget();
             displayedWidget= moodWidget;
             }    
         });
 
-        // Button taskbutton= new Button("Task Widget");
-        // taskbutton.setPosition(750, 290);
-        // canvas.add(taskbutton);
-        // taskbutton.onClick(()-> {
-        //     if (displayedWidget!= taskWidget){
-        //     canvas.add(taskWidget.getGraphics());
-        //     selectWidgetAtIndex();
-        //     displayedWidget= taskWidget;
-        //     }
-        // });
+        Button taskbutton= new Button("Task Widget");
+        taskbutton.setPosition(750, 290);
+        canvas.add(taskbutton);
+        taskbutton.onClick(()-> {
+            if (displayedWidget!= taskWidget){
+            canvas.add(taskWidget.getGraphics());
+            removeWidget();
+            displayedWidget= taskWidget;
+            }
+        });
 
     }
 
-    private void selectWidgetAtIndex() {
+    private void removeWidget() {
         if(displayedWidget!= null){
-            System.out.println("we removed something");
             canvas.remove(displayedWidget.getGraphics());
         }
     }
       
    
     public static void main(String[] args) {
-        BulletJournalProgram bjp = new BulletJournalProgram(600);
+        new BulletJournalProgram(600);
     }
     
 }

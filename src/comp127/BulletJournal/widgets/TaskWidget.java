@@ -25,14 +25,12 @@ public class TaskWidget implements BulletJournalWidget{
 
 
     private Image icon;
-    private CanvasWindow canvas;
 
     public static final Color PASTEL_PINK = new Color(174, 198, 207, 200);
     public static final Color GRAY = new Color(128,128,128,200); 
 
     public TaskWidget(double size, CanvasWindow canvas) {
         this.size = size;
-        this.canvas = canvas;
         
         group = new GraphicsGroup();
 

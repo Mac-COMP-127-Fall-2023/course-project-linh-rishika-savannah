@@ -35,7 +35,7 @@ public class BulletJournalProgram {
 
         moodWidget= new MoodWidget(600);
 
-        taskWidget = new TaskWidget(600, canvas);
+        //taskWidget = new TaskWidget(600, canvas);
 
         sleepImage= new Image("MainImages/MainImages.jpeg");
         sleepImage.setMaxWidth(150);

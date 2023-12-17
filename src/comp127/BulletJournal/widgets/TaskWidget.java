@@ -5,6 +5,7 @@ import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
 import java.util.ArrayList;
 
+
 public class TaskWidget implements BulletJournalWidget{
     private final double size;
     private GraphicsGroup group;

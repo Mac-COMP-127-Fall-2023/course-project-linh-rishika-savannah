@@ -6,6 +6,10 @@ import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.ui.Button;
 
+/**
+ * A widget that displays the 6 emojis and buttons, and each button displays a string text.
+ */
+
 public class MoodWidget implements BulletJournalWidget{
 
     private GraphicsGroup group;
@@ -13,6 +17,10 @@ public class MoodWidget implements BulletJournalWidget{
     private GraphicsText description;
     private double size;
     private String[] texts;
+
+    /**
+    * Creates a Mood widget of dimensions specefied by size.
+    */
 
     public MoodWidget(double size){
         this.size=size;
@@ -29,17 +37,21 @@ public class MoodWidget implements BulletJournalWidget{
         description.setFillColor(Color.RED);
 
         texts= new String[6];
-        texts[0]= "Life is happy and content";
-        texts[1]= "Sorry you feel nauseous :(";
-        texts[2]= "You won't always be sad ! ";
-        texts[3]= "Yay! You had a good day";
-        texts[4]= "ooooh you feel mischevious";
-        texts[5]= "boring uneventful day";
+        texts[0]= "You must be having a peaceful day";
+        texts[1]= "Time to pop open the Pepto Bismol!";
+        texts[2]= "Maybe you should cry it out and get some boba";
+        texts[3]= "Life is good!";
+        texts[4]= "Don't get into too much trouble!";
+        texts[5]= "Sorry you day is lame, go do something fun!";
 
         createButton();
 
 
     }
+
+    /**
+     * Creates 6 emojis with the using the Emoji Helper Class. 
+     */
 
     public void createEmojis(){
         GraphicsObject emoji1= EmojiHelper.createContentedFace(100);
@@ -67,6 +79,10 @@ public class MoodWidget implements BulletJournalWidget{
         group.add(emoji6);
         
     }
+    /**
+     * Creates 6 buttons for each emojis. 
+     * Loops over the array of text 
+     */
 
     public void createButton(){
         Button button1= new Button("Content");
@@ -87,7 +103,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button2.onClick(() -> {
             description.setText(texts[1]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.1, size);
             group.add(description);
         });
 
@@ -97,17 +113,17 @@ public class MoodWidget implements BulletJournalWidget{
         
         button3.onClick(() -> {
             description.setText(texts[2]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size*0.1, size);
             group.add(description);
         });
 
-        Button button4= new Button("Sad");
+        Button button4= new Button("Happy");
         button4.setPosition(size * 0.1, size * 0.85);
         group.add(button4);
         
         button4.onClick(() -> {
             description.setText(texts[3]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.5, size);
             group.add(description);
         });
 
@@ -127,12 +143,14 @@ public class MoodWidget implements BulletJournalWidget{
         
         button6.onClick(() -> {
             description.setText(texts[5]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size*0.1, size);
             group.add(description);
         });
         
 
     }
+
+    @Override
     public GraphicsObject getGraphics() {
         return group;
     }

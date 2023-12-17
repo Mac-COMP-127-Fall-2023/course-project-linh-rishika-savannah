@@ -10,11 +10,13 @@ import edu.macalester.graphics.Rectangle;
 
 
 import java.awt.Color;
-import java.awt.Label;
 import java.util.HashMap;
 
-import org.w3c.dom.css.Rect; 
 
+/**
+ * A widget that displays a row of boxes to represent hours of sleep,
+ * and allows the user to select as many boxes as needed.
+ */
 public class SleepWidget implements BulletJournalWidget {
     
 GraphicsGroup sleepGroup;
@@ -38,6 +40,12 @@ private Color colorSeven;
 private Color colorEight;
 
 
+    /**
+     * Creates the graphicsgroup for the class. Initializes the hashmaps for 
+     * the boxes and colors, and creates the question. Creates bar of boxes and 
+     * calls clickBox when the user clicks on the screen.
+     * @param canvas
+     */
     public SleepWidget(CanvasWindow canvas){
         sleepGroup = new GraphicsGroup();
        size = 15;
@@ -77,18 +85,26 @@ private Color colorEight;
         canvas.onClick((event) -> clickBox(event.getPosition()));
     }
 
-    public Rectangle createButton(double x, double y, double width, double height){
+    /**
+     * creates a box
+     * @param x the x-coordinate of the upper-lefthand corner of the box
+     * @param y the y-coordinate of the upper-lefthand corner of the box
+     * @param width width of the box
+     * @param height height of the box
+     * @return
+     */
+    private Rectangle createButton(double x, double y, double width, double height){
         Rectangle newBox = new Rectangle(x*size*.7, y*size*.5, width*size, height*size);
-        // System.out.println(height*size);
-        // System.out.println(y*size);
-        // System.out.println(x*size);
         sleepGroup.add(newBox);
         return newBox;
 
     }
 
-
-    public void createSleepBar(){
+    /**
+     * Creates row of boxes and the numbers underneath them.
+     * Adds each box to the box hashmap.
+     */
+    private void createSleepBar(){
         double x = 10;
         double y= 50;
         Integer boxCount = 1;
@@ -98,40 +114,42 @@ private Color colorEight;
             sleepGroup.add(nums);
             Rectangle newBox= createButton(x, y, BOX_WIDTH, BOX_HEIGHT);
             x= x + BOX_WIDTH*1.5;
-            System.out.println(newBox.getWidth());
             boxCount = boxCount +1;
             boxNums.put(newBox, boxCount);
         }
     }
 
 
-
-    public Rectangle getBoxAt(Point location){
+  /**
+   * Returns the box where the user clicked if there is one.
+   * @param location The location that we check for a box at. 
+   * @return
+   */
+    private Rectangle getBoxAt(Point location){
         if (sleepGroup.getElementAt(location) instanceof Rectangle){
             return (Rectangle) sleepGroup.getElementAt(location);
         }
         return null;
     }
 
-
-
-    public void clickBox(Point location){
-        System.out.println(getBoxAt(location));
+    /**
+     * If there is a box detected where the user clicked,
+     * the box gets filled in with its corresponding color. 
+     * @param location Location of the user's click.
+     */
+    private void clickBox(Point location){
         if (getBoxAt(location)!= null){
-
             Integer num= boxNums.get(getBoxAt(location));
-
             Color color = colorNums.get(num-1);
-            //System.out.println("color number = "+ color);
-
             getBoxAt(location).setFillColor(color);
-            //System.out.println("box clicked");
-
         }
     }
 
+    /**
+     * method from BulletJournalWidgets Interface. Returns graphicsgroup
+     * of the class.
+     */
     public GraphicsObject getGraphics() {
         return sleepGroup;
     }
-
 }

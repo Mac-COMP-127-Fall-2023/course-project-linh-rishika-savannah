@@ -11,21 +11,29 @@ import edu.macalester.graphics.ui.Button;
 
 import java.awt.Color;
 
+/**
+ * This class runs the main canvas that displays all of the widgets and their buttons.
+ */
 public class BulletJournalProgram {
     private CanvasWindow canvas;
-    private double size;
     private TaskWidget taskWidget;
     private SleepWidget sleepWidget;
     private MoodWidget moodWidget;
     private WaterWidget waterWidget;
     private BulletJournalWidget displayedWidget;
-    private BulletJournalWidget currentWidget;
     private Image sleepImage;
     private Image waterImage;
     private Image moodImage;
     private Image taskImage;
     private GraphicsText title;
 
+    /**
+     * Creates canvas for all of the widgets to be displayerd on.
+     * Initializes all of the widgets and places them and their buttons
+     * on the canvas.
+     * Places images above each of the widget buttons. 
+     * @param size
+     */
     public BulletJournalProgram(double size){
 
         canvas= new CanvasWindow("Bullet Journal",900,800);
@@ -64,12 +72,16 @@ public class BulletJournalProgram {
         title= new GraphicsText();
         title.setText("Bullet Journal your day!");
 
-        
-
+    
         canvas.setBackground(new Color(255, 189, 223, 100));
         addWidgetButtons();
     }
 
+    /**
+     * Creates and positions the buttons that correpsond to our widgets.
+     * Sets the widget that is displayed on the large screen to the 
+     * current displayed widget. 
+     */
     private void addWidgetButtons(){
         Button sleepbutton= new Button("Sleep Widget");
         sleepbutton.setPosition(730, 140);
@@ -78,8 +90,7 @@ public class BulletJournalProgram {
             if (displayedWidget!= sleepWidget){
                 canvas.add(sleepWidget.getGraphics());
                 selectWidgetAtIndex();
-                displayedWidget= sleepWidget; 
-                
+                displayedWidget= sleepWidget;  
             }
         });
         
@@ -120,14 +131,21 @@ public class BulletJournalProgram {
 
     }
 
+    /**
+     * Removes the previously displayed widget when
+     * another button is clicked.
+     */
     private void selectWidgetAtIndex() {
         if(displayedWidget!= null){
-            System.out.println("we removed something");
             canvas.remove(displayedWidget.getGraphics());
         }
     }
       
    
+    /**
+     * Initializes a new Bullet Journal Program. 
+     * @param args
+     */
     public static void main(String[] args) {
         BulletJournalProgram bjp = new BulletJournalProgram(600);
     }

@@ -8,5 +8,4 @@ import edu.macalester.graphics.GraphicsObject;
  */
 public interface BulletJournalWidget {
     GraphicsObject getGraphics();
-  
 }

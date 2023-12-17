@@ -140,7 +140,7 @@ public class TaskWidget implements BulletJournalWidget{
         //     canvas.remove(canvas.getElementAt(event.getPosition()));
         // });
 
-        GraphicsObject taskRemove = canvas.getElementAt(location);
+        GraphicsObject taskRemove = group.getElementAt(location);
         if (taskRemove != null) {
         canvas.remove(taskRemove);}
 

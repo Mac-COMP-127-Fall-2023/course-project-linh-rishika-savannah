@@ -6,6 +6,10 @@ import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.ui.Button;
 
+/**
+ * A widget that displays the 6 emojis and buttons, and each button displays a string text.
+ */
+
 public class MoodWidget implements BulletJournalWidget{
 
     private GraphicsGroup group;
@@ -13,6 +17,10 @@ public class MoodWidget implements BulletJournalWidget{
     private GraphicsText description;
     private double size;
     private String[] texts;
+
+    /**
+    * Creates a Mood widget of dimensions specefied by size.
+    */
 
     public MoodWidget(double size){
         this.size=size;
@@ -41,6 +49,10 @@ public class MoodWidget implements BulletJournalWidget{
 
     }
 
+    /**
+     * Creates 6 emojis with the using the Emoji Helper Class. 
+     */
+
     public void createEmojis(){
         GraphicsObject emoji1= EmojiHelper.createContentedFace(100);
         emoji1.setPosition(size * 0.1, size * 0.35);
@@ -67,6 +79,10 @@ public class MoodWidget implements BulletJournalWidget{
         group.add(emoji6);
         
     }
+    /**
+     * Creates 6 buttons for each emojis. 
+     * Loops over the array of text 
+     */
 
     public void createButton(){
         Button button1= new Button("Content");
@@ -101,7 +117,7 @@ public class MoodWidget implements BulletJournalWidget{
             group.add(description);
         });
 
-        Button button4= new Button("Sad");
+        Button button4= new Button("Happy");
         button4.setPosition(size * 0.1, size * 0.85);
         group.add(button4);
         
@@ -133,6 +149,8 @@ public class MoodWidget implements BulletJournalWidget{
         
 
     }
+
+    @Override
     public GraphicsObject getGraphics() {
         return group;
     }

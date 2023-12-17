@@ -7,6 +7,7 @@ import java.awt.List;
 import java.util.function.Consumer;
 import java.util.ArrayList;
 
+
 public class TaskWidget implements BulletJournalWidget{
     private final double size;
     private GraphicsGroup group;

@@ -2,25 +2,18 @@ package comp127.BulletJournal;
 
 import comp127.BulletJournal.widgets.*;
 import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
-import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
-
 import java.awt.Color;
-import java.util.List;
 
 public class BulletJournalProgram {
     private CanvasWindow canvas;
-    private double size;
     private TaskWidget taskWidget;
     private SleepWidget sleepWidget;
     private MoodWidget moodWidget;
     private WaterWidget waterWidget;
     private BulletJournalWidget displayedWidget;
-    private BulletJournalWidget currentWidget;
     private Image sleepImage;
     private Image waterImage;
     private Image moodImage;

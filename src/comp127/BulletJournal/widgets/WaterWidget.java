@@ -1,15 +1,15 @@
 package comp127.BulletJournal.widgets;
-
 import edu.macalester.graphics.Image;
 import java.awt.Color;
-
-import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.ui.Button;
-import java.util.*;
+
+/**
+ * A widget that displays a water icon and two buttons to raise the water level. Each level displays a different string text.
+ */
 
 public class WaterWidget implements BulletJournalWidget{
 
@@ -21,6 +21,10 @@ public class WaterWidget implements BulletJournalWidget{
     private String[] images;
     private int counter;
     private String[] texts;
+
+    /**
+     * Creates a Water widget of dimensions specefied by size.
+     */
 
     public WaterWidget(double size){
         this.size=size;
@@ -69,6 +73,11 @@ public class WaterWidget implements BulletJournalWidget{
 
     }
 
+    /**
+     * Loops over the array of images and texts. 
+     * Sets the icon to the new image and text to the new text. 
+     */
+
     public void update(){
         String path = images[counter];
         icon.setImagePath(path);
@@ -79,6 +88,11 @@ public class WaterWidget implements BulletJournalWidget{
         
         
     }
+
+    /**
+     * Creates the add and remove buttons and sets them on the canvas
+     * Updates the counter on the click of the button and calls the update method
+     */
 
     public void createButton(){
         Button button= new Button("More Water!");
@@ -103,6 +117,8 @@ public class WaterWidget implements BulletJournalWidget{
          });
     }
 
+
+    @Override
     public GraphicsObject getGraphics() {
         return group;
     }

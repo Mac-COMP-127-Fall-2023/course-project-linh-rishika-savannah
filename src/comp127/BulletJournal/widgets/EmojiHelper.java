@@ -134,23 +134,18 @@ public class EmojiHelper {
         GraphicsGroup group = new GraphicsGroup();
 
         Ellipse head = createHead(size, size);
-        //head.setFillColor(Color.PINK);
-        //head.setStrokeColor(Color.PINK);
         group.add(head);
 
         Line leftEye = createFlatEyelid(size * 0.15, -0.1);
         leftEye.setCenter(size * 0.3, size * 0.3);
-        //leftEye.setStrokeColor(C);
         group.add(leftEye);
 
         Line rightEye = createFlatEyelid(size * 0.15, 0.1);
         rightEye.setCenter(size * 0.7, size * 0.3);
-        //rightEye.setStrokeColor(NAUSEOUS_LINE_COLOR);
         group.add(rightEye);
 
         Line mouth = createFlatMouth(size * 0.4);
         mouth.setCenter(size * 0.5, size * 0.75);
-        //mouth.setStrokeColor(NAUSEOUS_LINE_COLOR);
         group.add(mouth);
 
         return group;

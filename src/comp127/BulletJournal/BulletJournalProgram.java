@@ -23,6 +23,7 @@ public class BulletJournalProgram {
     private Image sleepImage;
     private Image waterImage;
     private Image moodImage;
+    private Image taskImage;
     private GraphicsText title;
 
     public BulletJournalProgram(double size){
@@ -37,22 +38,28 @@ public class BulletJournalProgram {
         taskWidget = new TaskWidget(600, canvas);
 
         sleepImage= new Image("MainImages/MainImages.jpeg");
-        sleepImage.setMaxWidth(150);
-        sleepImage.setMaxHeight(150);
-        sleepImage.setPosition(700,100);
+        sleepImage.setMaxWidth(120);
+        sleepImage.setMaxHeight(120);
+        sleepImage.setPosition(730,20);
         canvas.add(sleepImage);
 
         waterImage= new Image("MainImages/WaterImage.jpeg");
-        waterImage.setMaxWidth(150);
-        waterImage.setMaxHeight(150);
-        waterImage.setPosition(700,350);
+        waterImage.setMaxWidth(120);
+        waterImage.setMaxHeight(120);
+        waterImage.setPosition(730,170);
         canvas.add(waterImage);
 
         moodImage= new Image("MainImages/MoodImage.jpg");
-        moodImage.setMaxWidth(150);
-        moodImage.setMaxHeight(150);
-        moodImage.setPosition(700,600);
+        moodImage.setMaxWidth(120);
+        moodImage.setMaxHeight(120);
+        moodImage.setPosition(730,320);
         canvas.add(moodImage);
+
+        taskImage= new Image("MainImages/TaskImage.jpeg");
+        taskImage.setMaxWidth(120);
+        taskImage.setMaxHeight(120);
+        taskImage.setPosition(730,470);
+        canvas.add(taskImage);
 
         title= new GraphicsText();
         title.setText("Bullet Journal your day!");
@@ -65,7 +72,7 @@ public class BulletJournalProgram {
 
     private void addWidgetButtons(){
         Button sleepbutton= new Button("Sleep Widget");
-        sleepbutton.setPosition(700, 300);
+        sleepbutton.setPosition(730, 140);
         canvas.add(sleepbutton);
         sleepbutton.onClick(()-> {
             if (displayedWidget!= sleepWidget){
@@ -78,7 +85,7 @@ public class BulletJournalProgram {
         
 
         Button waterbutton= new Button("Water Widget");
-        waterbutton.setPosition(700, 500);
+        waterbutton.setPosition(730, 290);
         
         canvas.add(waterbutton);
         waterbutton.onClick(()-> {
@@ -90,7 +97,7 @@ public class BulletJournalProgram {
         });
 
         Button moodbutton= new Button("Mood Widget");
-        moodbutton.setPosition(700, 750);
+        moodbutton.setPosition(730, 440);
         canvas.add(moodbutton);
         moodbutton.onClick(()-> {
             if (displayedWidget!= moodWidget){
@@ -100,16 +107,16 @@ public class BulletJournalProgram {
             }    
         });
 
-        // Button taskbutton= new Button("Task Widget");
-        // taskbutton.setPosition(750, 290);
-        // canvas.add(taskbutton);
-        // taskbutton.onClick(()-> {
-        //     if (displayedWidget!= taskWidget){
-        //     canvas.add(taskWidget.getGraphics());
-        //     selectWidgetAtIndex();
-        //     displayedWidget= taskWidget;
-        //     }
-        // });
+        Button taskbutton= new Button("Task Widget");
+        taskbutton.setPosition(730, 590);
+        canvas.add(taskbutton);
+        taskbutton.onClick(()-> {
+            if (displayedWidget!= taskWidget){
+            canvas.add(taskWidget.getGraphics());
+            selectWidgetAtIndex();
+            displayedWidget= taskWidget;
+            }
+        });
 
     }
 

@@ -103,7 +103,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button2.onClick(() -> {
             description.setText(texts[1]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.1, size);
             group.add(description);
         });
 
@@ -113,7 +113,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button3.onClick(() -> {
             description.setText(texts[2]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size*0.1, size);
             group.add(description);
         });
 
@@ -123,7 +123,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button4.onClick(() -> {
             description.setText(texts[3]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.5, size);
             group.add(description);
         });
 
@@ -143,7 +143,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button6.onClick(() -> {
             description.setText(texts[5]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size*0.1, size);
             group.add(description);
         });
         

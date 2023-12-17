@@ -70,9 +70,12 @@ public class BulletJournalProgram {
         canvas.add(sleepbutton);
         sleepbutton.onClick(()-> {
             if (displayedWidget!= sleepWidget){
-            canvas.add(sleepWidget.getGraphics());
-            selectWidgetAtIndex();
-            displayedWidget= sleepWidget; 
+                if (displayedWidget == taskWidget) {
+                    canvas.remove(taskWidget.getGraphics());}
+                canvas.add(sleepWidget.getGraphics());
+                selectWidgetAtIndex();
+                displayedWidget= sleepWidget; 
+                
             }
         });
         

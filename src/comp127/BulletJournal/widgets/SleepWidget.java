@@ -22,8 +22,8 @@ CanvasWindow sleepCanvas;
 HashMap<Rectangle, Integer> boxNums;
 HashMap<Integer, Color> colorNums;
 
-private static final double BOX_WIDTH= 2;
-private static final double BOX_HEIGHT= 2;
+private static final double BOX_WIDTH= 4;
+private static final double BOX_HEIGHT= 4;
 private double size;
 private GraphicsText question;
 
@@ -39,9 +39,10 @@ private Color colorEight;
 
     public SleepWidget(CanvasWindow canvas){
         sleepGroup = new GraphicsGroup();
-        size = 10;
+       size = 15;
         question = new GraphicsText("How many hours of sleep did you get last night?");
-        question.setPosition(15*size, 45*size);
+        question.setPosition(6*size, 18*size);
+        question.setFontSize(25);
         sleepGroup.add(question);
         boxNums = new HashMap<Rectangle, Integer>();
         colorNums = new HashMap<Integer, Color>();
@@ -75,10 +76,10 @@ private Color colorEight;
     }
 
     public Rectangle createButton(double x, double y, double width, double height){
-        Rectangle newBox = new Rectangle(x*size, y*size, width*size, height*size);
-        System.out.println(height*size);
-        System.out.println(y*size);
-        System.out.println(x*size);
+        Rectangle newBox = new Rectangle(x*size*.7, y*size*.5, width*size, height*size);
+        // System.out.println(height*size);
+        // System.out.println(y*size);
+        // System.out.println(x*size);
         sleepGroup.add(newBox);
         return newBox;
 
@@ -86,14 +87,16 @@ private Color colorEight;
 
 
     public void createSleepBar(){
-        double x = 20;
+        double x = 10;
         double y= 50;
         Integer boxCount = 1;
         for (int i=0; i<8; i++){
-            GraphicsText nums = new GraphicsText(boxCount.toString(), x*size, y*size +40);
+            GraphicsText nums = new GraphicsText(boxCount.toString(), x*size*.7+20, y*size*.5 +80);
+            nums.setFontSize(20);
             sleepGroup.add(nums);
             Rectangle newBox= createButton(x, y, BOX_WIDTH, BOX_HEIGHT);
-            x= x + (BOX_WIDTH);
+            x= x + BOX_WIDTH*1.5;
+            System.out.println(newBox.getWidth());
             boxCount = boxCount +1;
             boxNums.put(newBox, boxCount);
         }
@@ -111,18 +114,16 @@ private Color colorEight;
 
 
     public void clickBox(Point location){
-        System.out.println("click box reached");
         System.out.println(getBoxAt(location));
         if (getBoxAt(location)!= null){
 
             Integer num= boxNums.get(getBoxAt(location));
-            System.out.println("box number = "+ num);
 
             Color color = colorNums.get(num-1);
-            System.out.println("color number = "+ color);
+            //System.out.println("color number = "+ color);
 
             getBoxAt(location).setFillColor(color);
-            System.out.println("box clicked");
+            //System.out.println("box clicked");
 
         }
     }

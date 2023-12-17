@@ -49,7 +49,7 @@ public class WaterWidget implements BulletJournalWidget{
 
         description = new GraphicsText();
         description.setFont(FontStyle.BOLD_ITALIC , size * 0.05);
-        description.setText("Hmm you're dehydrated :( ");
+        description.setText("Don't you need water to survive?");
         description.setCenter(size * 0.5, size * 0.9);
         group.add(description);
         
@@ -62,7 +62,7 @@ public class WaterWidget implements BulletJournalWidget{
         images[5]="GlassImages/100p.jpg";
 
         texts= new String[6];
-        texts[0]="Don't you know you need water to survive?";
+        texts[0]="Don't you need water to survive?";
         texts[1]="Way to get started!";
         texts[2]="Keep going!";
         texts[3]="Almost there!";

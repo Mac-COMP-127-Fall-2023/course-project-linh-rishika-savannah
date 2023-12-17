@@ -103,7 +103,7 @@ public class TaskWidget implements BulletJournalWidget{
             newgoal.setStrokeWidth(2);
             newgoal.setFillColor(GRAY);
             newgoal.setPosition(field.getX(),list.indexOf(list.get(list.size()-1))*20 + field.getY()+50);
-            canvas.add(newgoal);
+            group.add(newgoal);
 
     }
         
@@ -111,9 +111,9 @@ public class TaskWidget implements BulletJournalWidget{
     //TO do: create graphicgroup of all task every time adding new task
 
     private void removeTask(Point location) {
-        GraphicsObject taskRemove = canvas.getElementAt(location);
-        if (taskRemove != null && taskRemove != group) {
-        canvas.remove(taskRemove);}
+        GraphicsObject taskRemove = group.getElementAt(location);
+        if (taskRemove != null) {
+        group.remove(taskRemove);}
 
     }
 }

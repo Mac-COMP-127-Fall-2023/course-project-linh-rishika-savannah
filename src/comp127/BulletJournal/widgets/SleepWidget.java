@@ -1,6 +1,7 @@
 package comp127.BulletJournal.widgets;
 
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.GraphicsText;
@@ -42,7 +43,8 @@ private Color colorEight;
        size = 15;
         question = new GraphicsText("How many hours of sleep did you get last night?");
         question.setPosition(6*size, 18*size);
-        question.setFontSize(25);
+        question.setFont(FontStyle.BOLD, 25);
+        question.setFillColor(colorOne);
         sleepGroup.add(question);
         boxNums = new HashMap<Rectangle, Integer>();
         colorNums = new HashMap<Integer, Color>();
@@ -131,7 +133,5 @@ private Color colorEight;
     public GraphicsObject getGraphics() {
         return sleepGroup;
     }
-
-
 
 }

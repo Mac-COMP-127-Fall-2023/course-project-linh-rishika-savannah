@@ -89,7 +89,7 @@ public class TaskWidget implements BulletJournalWidget{
         Button button= new Button("Add");
         button.setPosition(field.getX()+100,field.getY());
         group.add(button);
-        // GraphicsGroup currentTaskGroup = taskGroup;
+        //GraphicsGroup currentTaskGroup = taskGroup;
         button.onClick(() -> {
             field.getText();
             list.add(field.getText());

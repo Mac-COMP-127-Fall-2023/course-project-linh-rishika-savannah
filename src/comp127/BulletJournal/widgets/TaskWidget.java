@@ -25,14 +25,12 @@ public class TaskWidget implements BulletJournalWidget{
 
 
     private Image icon;
-    private CanvasWindow canvas;
 
     public static final Color PASTEL_PINK = new Color(174, 198, 207, 200);
     public static final Color GRAY = new Color(128,128,128,200); 
 
     public TaskWidget(double size, CanvasWindow canvas) {
         this.size = size;
-        this.canvas = canvas;
         
         group = new GraphicsGroup();
 
@@ -100,10 +98,10 @@ public class TaskWidget implements BulletJournalWidget{
     private void addNewTask(TextField field, ArrayList<String> list) {
             GraphicsText newgoal = new GraphicsText(list.get(list.size()-1));
             newgoal.setFont(FontStyle.ITALIC, size * 0.035);
-            newgoal.setStrokeWidth(5);
+            newgoal.setStrokeWidth(2);
             newgoal.setFillColor(GRAY);
             newgoal.setPosition(field.getX(),list.indexOf(list.get(list.size()-1))*20 + field.getY()+50);
-            canvas.add(newgoal);
+            group.add(newgoal);
 
     }
         
@@ -111,9 +109,9 @@ public class TaskWidget implements BulletJournalWidget{
     //TO do: create graphicgroup of all task every time adding new task
 
     private void removeTask(Point location) {
-        GraphicsObject taskRemove = canvas.getElementAt(location);
-        if (taskRemove != null && taskRemove != group) {
-        canvas.remove(taskRemove);}
+        GraphicsObject taskRemove = group.getElementAt(location);
+        if (taskRemove != null) {
+        group.remove(taskRemove);}
 
     }
 }

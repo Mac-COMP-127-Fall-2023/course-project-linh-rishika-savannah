@@ -60,7 +60,7 @@ public class BulletJournalProgram {
 
         
 
-        canvas.setBackground(new Color(255, 189, 223));
+        canvas.setBackground(new Color(255, 189, 223, 100));
         addWidgetButtons();
     }
 
@@ -70,8 +70,6 @@ public class BulletJournalProgram {
         canvas.add(sleepbutton);
         sleepbutton.onClick(()-> {
             if (displayedWidget!= sleepWidget){
-                if (displayedWidget == taskWidget) {
-                    canvas.remove(taskWidget.getGraphics());}
                 canvas.add(sleepWidget.getGraphics());
                 selectWidgetAtIndex();
                 displayedWidget= sleepWidget; 
@@ -113,6 +111,7 @@ public class BulletJournalProgram {
         //     displayedWidget= taskWidget;
         //     }
         // });
+
     }
 
     private void selectWidgetAtIndex() {

@@ -101,16 +101,16 @@ public class BulletJournalProgram {
             }    
         });
 
-        Button taskbutton= new Button("Task Widget");
-        taskbutton.setPosition(750, 290);
-        canvas.add(taskbutton);
-        taskbutton.onClick(()-> {
-            if (displayedWidget!= taskWidget){
-            canvas.add(taskWidget.getGraphics());
-            selectWidgetAtIndex();
-            displayedWidget= taskWidget;
-            }
-        });
+        // Button taskbutton= new Button("Task Widget");
+        // taskbutton.setPosition(750, 290);
+        // canvas.add(taskbutton);
+        // taskbutton.onClick(()-> {
+        //     if (displayedWidget!= taskWidget){
+        //     canvas.add(taskWidget.getGraphics());
+        //     selectWidgetAtIndex();
+        //     displayedWidget= taskWidget;
+        //     }
+        // });
 
     }
 

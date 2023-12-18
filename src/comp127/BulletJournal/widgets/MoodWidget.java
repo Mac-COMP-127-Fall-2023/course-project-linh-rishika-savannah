@@ -113,7 +113,7 @@ public class MoodWidget implements BulletJournalWidget{
         
         button3.onClick(() -> {
             description.setText(texts[2]);
-            description.setPosition(size*0.20, size*1.05);
+            description.setPosition(size*0.15, size*1.05);
             group.add(description);
         });
 

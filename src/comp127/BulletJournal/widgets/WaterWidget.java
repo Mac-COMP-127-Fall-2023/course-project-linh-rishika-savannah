@@ -36,7 +36,7 @@ public class WaterWidget implements BulletJournalWidget{
         icon.setMaxWidth(size);
         icon.setMaxHeight(size * 0.5);
         icon.setImagePath("GlassImages/0p.jpg");
-        icon.setCenter(size * 0.5, size * 0.55);
+        icon.setCenter(size * 0.55, size * 0.60);
         group.add(icon);
 
         
@@ -44,13 +44,13 @@ public class WaterWidget implements BulletJournalWidget{
         label.setText("How much water did you drink today?");
         label.setFillColor(Color.blue);
         label.setFont(FontStyle.BOLD, size * 0.05);
-        label.setPosition(size*0.05,size*0.20);
+        label.setPosition(size*0.1,size*0.30);
         group.add(label);
 
         description = new GraphicsText();
         description.setFont(FontStyle.BOLD_ITALIC , size * 0.05);
         description.setText("Don't you need water to survive?");
-        description.setCenter(size * 0.5, size * 0.9);
+        description.setCenter(size * 0.55, size * 0.95);
         group.add(description);
         
         images= new String[6];
@@ -81,10 +81,10 @@ public class WaterWidget implements BulletJournalWidget{
     public void update(){
         String path = images[counter];
         icon.setImagePath(path);
-        icon.setCenter(size * 0.5, size * 0.55);
+        icon.setCenter(size * 0.55, size * 0.60);
         String text= texts[counter];
         description.setText(text);
-        description.setCenter(size * 0.5, size * 0.9);
+        description.setCenter(size * 0.55, size * 0.95);
         
         
     }
@@ -96,7 +96,7 @@ public class WaterWidget implements BulletJournalWidget{
 
     public void createButton(){
         Button button= new Button("More Water!");
-        button.setPosition(size*0.5,size);
+        button.setPosition(size*0.55,size*1.05);
         group.add(button);
         
         button.onClick(() -> {
@@ -106,7 +106,7 @@ public class WaterWidget implements BulletJournalWidget{
             } update();
         });
         Button button1= new Button("Less Water!");
-        button1.setPosition(size*0.2,size);
+        button1.setPosition(size*0.25,size*1.05);
         group.add(button1);
         
         button1.onClick(() -> {

@@ -42,7 +42,7 @@ public class MoodWidget implements BulletJournalWidget{
         texts[2]= "Maybe you should cry it out and get some boba";
         texts[3]= "Life is good!";
         texts[4]= "Don't get into too much trouble!";
-        texts[5]= "Sorry you day is lame, go do something fun!";
+        texts[5]= "Sorry your day is lame, go do something fun!";
 
         createButton();
 

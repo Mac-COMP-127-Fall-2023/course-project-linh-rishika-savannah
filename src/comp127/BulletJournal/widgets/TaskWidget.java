@@ -73,6 +73,8 @@ public class TaskWidget implements BulletJournalWidget{
         group.add(weeklyLabel);
         group.add(weeklyField);
 
+        group.setPosition(size*0.1, size*0.4);
+
         canvas.onClick(event -> {removeTask(event.getPosition());} );
     }
 

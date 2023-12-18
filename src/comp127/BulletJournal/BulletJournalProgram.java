@@ -2,11 +2,9 @@ package comp127.BulletJournal;
 
 import comp127.BulletJournal.widgets.*;
 import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.GraphicsObject;
+import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
-import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 
 import java.awt.Color;
@@ -46,31 +44,35 @@ public class BulletJournalProgram {
         taskWidget = new TaskWidget(600, canvas);
 
         sleepImage= new Image("MainImages/MainImages.jpeg");
-        sleepImage.setMaxWidth(120);
-        sleepImage.setMaxHeight(120);
+        sleepImage.setMaxWidth(150);
+        sleepImage.setMaxHeight(150);
         sleepImage.setPosition(730,20);
         canvas.add(sleepImage);
 
         waterImage= new Image("MainImages/WaterImage.jpeg");
-        waterImage.setMaxWidth(120);
-        waterImage.setMaxHeight(120);
-        waterImage.setPosition(730,170);
+        waterImage.setMaxWidth(150);
+        waterImage.setMaxHeight(150);
+        waterImage.setPosition(730,210);
         canvas.add(waterImage);
 
         moodImage= new Image("MainImages/MoodImage.jpg");
-        moodImage.setMaxWidth(120);
-        moodImage.setMaxHeight(120);
-        moodImage.setPosition(730,320);
+        moodImage.setMaxWidth(150);
+        moodImage.setMaxHeight(150);
+        moodImage.setPosition(730,400);
         canvas.add(moodImage);
 
         taskImage= new Image("MainImages/TaskImage.jpeg");
-        taskImage.setMaxWidth(120);
-        taskImage.setMaxHeight(120);
-        taskImage.setPosition(730,470);
+        taskImage.setMaxWidth(150);
+        taskImage.setMaxHeight(150);
+        taskImage.setPosition(730,590);
         canvas.add(taskImage);
 
         title= new GraphicsText();
         title.setText("Bullet Journal your day!");
+        title.setFont(FontStyle.BOLD_ITALIC,40);
+        title.setPosition(125,100);
+        title.setFillColor(new Color(172,45,186));
+        canvas.add(title);
 
     
         canvas.setBackground(new Color(255, 189, 223, 100));
@@ -84,7 +86,7 @@ public class BulletJournalProgram {
      */
     private void addWidgetButtons(){
         Button sleepbutton= new Button("Sleep Widget");
-        sleepbutton.setPosition(730, 140);
+        sleepbutton.setPosition(730, 175);
         canvas.add(sleepbutton);
         sleepbutton.onClick(()-> {
             if (displayedWidget!= sleepWidget){
@@ -96,7 +98,7 @@ public class BulletJournalProgram {
         
 
         Button waterbutton= new Button("Water Widget");
-        waterbutton.setPosition(730, 290);
+        waterbutton.setPosition(730, 365);
         
         canvas.add(waterbutton);
         waterbutton.onClick(()-> {
@@ -108,7 +110,7 @@ public class BulletJournalProgram {
         });
 
         Button moodbutton= new Button("Mood Widget");
-        moodbutton.setPosition(730, 440);
+        moodbutton.setPosition(730, 555);
         canvas.add(moodbutton);
         moodbutton.onClick(()-> {
             if (displayedWidget!= moodWidget){
@@ -119,7 +121,7 @@ public class BulletJournalProgram {
         });
 
         Button taskbutton= new Button("Task Widget");
-        taskbutton.setPosition(730, 590);
+        taskbutton.setPosition(730, 750);
         canvas.add(taskbutton);
         taskbutton.onClick(()-> {
             if (displayedWidget!= taskWidget){

@@ -50,7 +50,7 @@ private Color colorEight;
         sleepGroup = new GraphicsGroup();
        size = 15;
         question = new GraphicsText("How many hours of sleep did you get last night?");
-        question.setPosition(6*size, 18*size);
+        question.setPosition(3*size, 18*size);
         question.setFont(FontStyle.BOLD, 25);
         question.setFillColor(colorOne);
         sleepGroup.add(question);

@@ -28,7 +28,7 @@ public class MoodWidget implements BulletJournalWidget{
         label= new GraphicsText();
         label.setText("How are you feeling today?");
         label.setFont(FontStyle.BOLD, size * 0.05);
-        label.setPosition(size*0.15,size*0.20);
+        label.setPosition(size*0.25,size*0.30);
         group.add(label);
         createEmojis();
 
@@ -55,27 +55,27 @@ public class MoodWidget implements BulletJournalWidget{
 
     public void createEmojis(){
         GraphicsObject emoji1= EmojiHelper.createContentedFace(100);
-        emoji1.setPosition(size * 0.1, size * 0.35);
+        emoji1.setPosition(size * 0.20, size * 0.40);
         group.add(emoji1);
 
         GraphicsObject emoji2= EmojiHelper.createNauseousFace(100);
-        emoji2.setPosition(size * 0.4, size * 0.35);
+        emoji2.setPosition(size * 0.50, size * 0.40);
         group.add(emoji2);
 
         GraphicsObject emoji3= EmojiHelper.createFrownyFace(100);
-        emoji3.setPosition(size * 0.7, size * 0.35);
+        emoji3.setPosition(size * 0.80, size * 0.40);
         group.add(emoji3);
 
         GraphicsObject emoji4= EmojiHelper.createSmileyFace(100);
-        emoji4.setPosition(size * 0.1, size * 0.65);
+        emoji4.setPosition(size * 0.20, size * 0.70);
         group.add(emoji4);
 
         GraphicsObject emoji5= EmojiHelper.createWinkingFace(100);
-        emoji5.setPosition(size * 0.4, size * 0.65);
+        emoji5.setPosition(size * 0.50, size * 0.70);
         group.add(emoji5);
 
         GraphicsObject emoji6= EmojiHelper.createBoredFace(100);
-        emoji6.setPosition(size * 0.7, size * 0.65);
+        emoji6.setPosition(size * 0.80, size * 0.70);
         group.add(emoji6);
         
     }
@@ -86,64 +86,64 @@ public class MoodWidget implements BulletJournalWidget{
 
     public void createButton(){
         Button button1= new Button("Content");
-        button1.setPosition(size * 0.1, size * 0.55);
+        button1.setPosition(size * 0.20, size * 0.60);
         group.add(button1);
         
         button1.onClick(() -> {
             description.setText(texts[0]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.20, size*1.05);
             group.add(description);
 
     
         });
 
         Button button2= new Button("Nauseous");
-        button2.setPosition(size * 0.4, size * 0.55);
+        button2.setPosition(size * 0.50, size * 0.60);
         group.add(button2);
         
         button2.onClick(() -> {
             description.setText(texts[1]);
-            description.setPosition(size * 0.1, size);
+            description.setPosition(size * 0.20, size*1.05);
             group.add(description);
         });
 
         Button button3= new Button("Sad");
-        button3.setPosition(size * 0.7, size * 0.55);
+        button3.setPosition(size * 0.80, size * 0.60);
         group.add(button3);
         
         button3.onClick(() -> {
             description.setText(texts[2]);
-            description.setPosition(size*0.1, size);
+            description.setPosition(size*0.20, size*1.05);
             group.add(description);
         });
 
         Button button4= new Button("Happy");
-        button4.setPosition(size * 0.1, size * 0.85);
+        button4.setPosition(size * 0.20, size * 0.90);
         group.add(button4);
         
         button4.onClick(() -> {
             description.setText(texts[3]);
-            description.setPosition(size * 0.5, size);
+            description.setPosition(size * 0.40, size*1.05);
             group.add(description);
         });
 
         Button button5= new Button("Mischevious");
-        button5.setPosition(size * 0.4, size * 0.85);
+        button5.setPosition(size * 0.47, size * 0.90);
         group.add(button5);
         
         button5.onClick(() -> {
             description.setText(texts[4]);
-            description.setPosition(size * 0.2, size);
+            description.setPosition(size * 0.25, size*1.05);
             group.add(description);
         });
 
         Button button6= new Button("Bored");
-        button6.setPosition(size * 0.7, size * 0.85);
+        button6.setPosition(size * 0.80, size * 0.90);
         group.add(button6);
         
         button6.onClick(() -> {
             description.setText(texts[5]);
-            description.setPosition(size*0.1, size);
+            description.setPosition(size*0.15, size*1.05);
             group.add(description);
         });
         

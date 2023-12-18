@@ -15,6 +15,7 @@ Known issues:
 - The logic of the smaller widget is still running even when it's not the displayed widget (when we click on the canvas it's keep returning null even when the display widget doesn't have that function)
 - In the sleep widget, when the user selects a box the previous boxes are not automatically filled. The user has to click on all eight boxes to fill up the bar, when it would be much easier for them to just select the furthest box that represents their hours of sleep. 
 - The task widget list and position logic is not the best, newly added task doesn't appear on the top even when the old tasks are removed, and if you click on the label, it also disappears.
+- It takes a while for tasks to disappear on the task widget. The widet is very slow, and sometimes it deletes the task, and sometimes it doesn't. 
 - onClick method is hard to implement in sleep widget and task widget. We don't know if this is the Kilt-Graphic problem or problem on our side.
 
 

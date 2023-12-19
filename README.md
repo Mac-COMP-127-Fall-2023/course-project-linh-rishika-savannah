@@ -1,7 +1,5 @@
 # Title: Bullet Journal Program
 
-Info about your project goes here
-
 Name of team members: Rishika Kundu, Savannah Haugen, Linh Dang
 
 Project description: 
